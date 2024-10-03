@@ -1,0 +1,22 @@
+---
+  - name: wednesday challenge 
+    hosts: planetexpress:!farnsworth
+    become: yes 
+    vars_files:
+      - ../../vars/wed_challenge_names.yml
+
+    tasks:
+    - name: Add newuser1 to target hosts
+      user:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ wednesday_challenge }}"
+
+    - name: figlet
+      package:
+        name: figlet
+        state: present
+
+    - name: complete
+    debug:
+      msg: "I've completed the challenge"

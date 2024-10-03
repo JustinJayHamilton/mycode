@@ -1,0 +1,11 @@
+- name: wednesday challenge                                               
+  hosts: planetexpress
+  connection: ssh
+
+  tasks:
+    # I don't know what I'm doing
+    ansible.builtin.user:
+      :name: "{{ item }}
+
+    - loop: "{{ wed_challenge_names.yml }}"
+
